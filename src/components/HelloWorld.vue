@@ -1,6 +1,7 @@
 <template>
   <div class="hello">
     <h1>{{ msg }}</h1>
+    <!-- <div>map: {{ r }}</div> -->
   </div>
 </template>
 
@@ -9,11 +10,24 @@ export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'Welcome to Your Vue.js App',
+      width: 500,
+      height: 500,
+      r: 751
     }
-  }
+  },
+  // mounted: function(){
+  //   var svg = d3.select('#circle-001');
+  //   this.circle = svg.append('circle')
+  //                     .attr('cx', this.width/2)
+  //                     .attr('cy', this.height/2)
+  //                     .attr('r', this.r)
+  //                     .style('fill','rgba(0, 0, 0, 0.8)')
+  // }
 }
 </script>
+
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>

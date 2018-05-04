@@ -8,8 +8,7 @@
     }
     </style>
     <script src="https://unpkg.com/vue"></script>
-    <!-- <script src="d3.v3.min.js"></script> -->
-    <script src="https://d3js.org/d3.v3.min.js"></script>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
@@ -19,9 +18,6 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
     <div id="map"></div>
-    <svg id="circle-001"></svg>
-    <div>map: {{ r }}</div>
-
 
     <script>
       new Vue({
@@ -48,13 +44,13 @@
                      path;
 
                // 投影を処理する関数を用意する。データからSVGのPATHに変換するため。
-               projection = d3.geo.mercator()
+               projection = d3.geoMercator()
                       .scale(1000)
-                      .center(d3.geo.centroid(json))  // データから中心点を計算
+                      .center(d3.geoCentroid(json))  // データから中心点を計算
                       .translate([width / 2, height / 2]);
 
                 // pathジェネレータ関数
-                path = d3.geo.path().projection(projection);
+                path = d3.geoPath().projection(projection);
                //  これがenterしたデータ毎に呼び出されpath要素のd属性に
                //  geoJSONデータから変換した値を入れる
 
@@ -117,6 +113,5 @@
       }
     </script>
 
-    <!-- <script src="mapping.js"></script> -->
   </body>
 </html>
